@@ -4,17 +4,6 @@ from windrose import WindroseAxes
 import numpy as np
 import os, sys, getopt, time
 
-""" TODO:   
-            - DATA FILTERING: make sure this data filtering works with other data sets
-            -Ask: if all raw files comma delimited or could be tab delimited? -> conditional logic for pd.read_csv
-            -Just one month data parsing?
-"""       
-
-# Copy paste this into the terminal to pass in arguments through IPython console. (Example:)
-# runfile('C:/Users/espitiaa/Documents/AndresWork/WindrosesPython/WindrosesPython.py', wdir='C:/Users/espitiaa/Documents/AndresWork/WindrosesPython', args='-f wind_so2.csv -y "2017-07-31 20:00 to 2017-08-01 21:50" -p "Windrose Plot" -r so2 -d wdean -t "dt_start" -l "SO2 Concentration ppbv" -b 24 -i 6 -s unsectioned')
-# python WindrosesPython.py -f "alert_winds.csv" -y "2000-2019" -p "Windrose Plots" -r "speed_knots" -d "direction" -t "date_time" -l "Wind Speed in Knots" -b 24 -i 6 -s unsectioned
-
-
 # Initialize subplot titles for different different data sampling intervals
 months_titles = ["January", "February", "March", "April", "May", "June", 
                   "July", "August", "September", "October", "November", "December"]
@@ -52,7 +41,6 @@ CYLT   | 2000-01-04 14:00| 190      | 3
 -t would be "date_time"
 ************************""")
 
-#Main function that uses pandas to read the data, and pyplot to plot the windroses
 
 
 # Validates date time variable when doing multiple subplots
@@ -262,7 +250,8 @@ class PlotParameters():
         self.time_range = time_range
         self.data_sampling_interval = data_sampling_interval
         
-        
+
+# Main function that uses pandas to read the data, and pyplot to plot the windroses        
 def main(argv):
     t = time.time()
     df = None
